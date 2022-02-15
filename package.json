@@ -1,0 +1,13 @@
+{
+  "name": "tp2",
+  "private": true,
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "start": "node ./app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
