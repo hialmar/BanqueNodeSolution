@@ -1,6 +1,9 @@
+<!-- Formulaire pour taper le numéro du compte et afficher la somme-->
 <form>
   <label>Id : <input type="text" [(ngModel)]="ic._id" name='id'></label><br>
   <label>Somme : <input type="number" readonly [(ngModel)]="ic._somme" name='somme'></label><br>
+  <!-- Bouton pour changer de compte -->
   <button (click)="changerCompte()">Position du compte</button><br>
 </form>
+<!-- Message retour ou erreur -->
 <p>Resultat : {{resultat}}</p>

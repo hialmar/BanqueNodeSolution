@@ -1,7 +1,10 @@
+<!-- Formulaire pour taper le numéro du compte et la somme-->
 <form>
   <label>Id : <input type="text" [(ngModel)]="ic._id" name='id'></label><br>
   <label>Somme : <input type="number" [(ngModel)]="ic._somme" name='somme'></label><br>
+  <!-- Boutons pour créditer ou débiter-->
   <button (click)="ajouterAuCompte()">Créditer le compte</button><br>
   <button (click)="retirerDuCompte()">Débiter le compte</button><br>
 </form>
+<!-- Affichage des retours ou de l'erreur -->
 <p>Resultat : {{resultat}}</p>

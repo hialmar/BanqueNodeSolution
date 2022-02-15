@@ -9,7 +9,9 @@ import {RouterModule, Routes} from "@angular/router";
 import { CreationComponent } from './creation/creation.component';
 import { ConsultationComponent } from './consultation/consultation.component';
 import { ModificationComponent } from './modification/modification.component';
+import {BanqueService} from "./banque.service";
 
+// définition des routes
 const appRoutes: Routes = [
   {path: 'creation', component: CreationComponent},
   {path: 'consultation/:id', component: ConsultationComponent},
@@ -19,20 +21,20 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
+  declarations: [ // déclaration des composants
     AppComponent,
     CreationComponent,
     ConsultationComponent,
     ModificationComponent
   ],
-  imports: [
+  imports: [ // modules Angular dont on dépend
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes) // ne pas oublier les routes
   ],
-  providers: [],
+  providers: [BanqueService], // le service
   bootstrap: [AppComponent]
 })
 export class AppModule { }
