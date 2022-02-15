@@ -27,10 +27,10 @@ app.use(express.json()); // pour parser du JSON
 
 app.post('/compte/', function (req, res) {
     console.log(req.body);
-    if (!isFloat(req.body.somme)) {
+    if (!isFloat(req.body._somme)) {
         res.status(400).json({error: 'Il faut préciser les paramètres.'});
     } else {
-        const id = banque.creerCompte(parseFloat(req.body.somme))
+        const id = banque.creerCompte(parseFloat(req.body._somme))
         const pos = banque.positionDuCompte(id);
         if (pos) {
             console.log(pos);
@@ -58,12 +58,12 @@ app.get('/compte/:id', function (req, res) {
 app.put('/compte/:id', function (req, res) {
     console.log(req.query);
     let pos;
-    if (typeof req.params.id === 'undefined' || !isFloat(req.body.somme)) {
+    if (typeof req.params.id === 'undefined' || !isFloat(req.body._somme)) {
         res.status(400).json({error: 'Il faut préciser les paramètres.'});
     } else {
-        if (req.body.somme > 0) {
+        if (req.body._somme > 0) {
             console.log("ajout");
-            if (banque.ajouterAuCompte(req.params.id, parseFloat(req.body.somme))) {
+            if (banque.ajouterAuCompte(req.params.id, parseFloat(req.body._somme))) {
                 pos = banque.positionDuCompte(req.params.id);
                 if (pos) {
                     console.log(pos);
@@ -76,7 +76,7 @@ app.put('/compte/:id', function (req, res) {
             }
         } else {
             console.log("retrait");
-            if (banque.retirerDuCompte(req.params.id, -parseFloat(req.body.somme))) {
+            if (banque.retirerDuCompte(req.params.id, -parseFloat(req.body._somme))) {
                 pos = banque.positionDuCompte(req.params.id);
                 if (pos) {
                     console.log(pos);
