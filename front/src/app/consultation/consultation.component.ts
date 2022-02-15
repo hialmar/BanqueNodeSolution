@@ -27,15 +27,18 @@ export class ConsultationComponent implements OnInit {
   }
 
   positionDuCompte() {
-    this.banque.positionDuCompte(this.ic._id).subscribe((response) => {
-      this.ic = response;
-      this.resultat = "Le compte d'id "+response._id+" a "+response._somme+
-        " euros et la date de dernière opération est "+response._date;
-    }, (error) => {
-      this.resultat = "Erreur : " + error.error.error;
-      console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error.error}`);
+    this.banque.positionDuCompte(this.ic._id).subscribe({
+      next: (response) => {
+        this.ic = response;
+        this.resultat = "Le compte d'id "+response._id+" a "+response._somme+
+          " euros et la date de dernière opération est "+response._date;
+      },
+      error: (error) => {
+        this.resultat = "Erreur : " + error.error.error;
+        console.error(
+          `Backend returned code ${error.status}, ` +
+          `body was: ${error.error.error}`);
+      }
     });
   }
 }

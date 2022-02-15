@@ -19,13 +19,16 @@ export class CreationComponent implements OnInit {
 
   creerCompte() {
     this.resultat = "Opération en cours";
-    this.banque.creerCompte(this.ic).subscribe((response) => {
-      this.resultat = "Compte d'id "+response._id+" créé";
-    }, (error) => {
-      this.resultat = "Erreur : " + error.error.error;
-      console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error.error}`);
+    this.banque.creerCompte(this.ic).subscribe({
+      next: (response) => {
+        this.resultat = "Compte d'id "+response._id+" créé";
+      },
+      error: (error) => {
+        this.resultat = "Erreur : " + error.error.error;
+        console.error(
+          `Backend returned code ${error.status}, ` +
+          `body was: ${error.error.error}`);
+      }
     });
   }
 

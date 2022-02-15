@@ -29,13 +29,16 @@ export class ModificationComponent implements OnInit {
   ajouterAuCompte() {
     if(this.ic._somme > 0) {
       this.resultat = "Opération en cours";
-      this.banque.ajouterAuCompte(this.ic).subscribe((response) => {
-        this.resultat = "Compte crédité";
-      }, (error) => {
-        this.resultat = "Erreur : " + error.error.error;
-        console.error(
-          `Backend returned code ${error.status}, ` +
-          `body was: ${error.error.error}`);
+      this.banque.ajouterAuCompte(this.ic).subscribe({
+        next: (response) => {
+          this.resultat = "Compte crédité";
+        },
+        error: (error) => {
+          this.resultat = "Erreur : " + error.error.error;
+          console.error(
+            `Backend returned code ${error.status}, ` +
+            `body was: ${error.error.error}`);
+        }
       });
     } else {
       this.resultat = "La somme doit être positive";
@@ -48,13 +51,16 @@ export class ModificationComponent implements OnInit {
       retrait._id = this.ic._id;
       retrait._somme = -1 * this.ic._somme;
       this.resultat = "Opération en cours";
-      this.banque.retirerDuCompte(retrait).subscribe((response) => {
-        this.resultat = "Compte débité";
-      }, (error) => {
-        this.resultat = "Erreur : " + error.error.error;
-        console.error(
-          `Backend returned code ${error.status}, ` +
-          `body was: ${error.error.error}`);
+      this.banque.retirerDuCompte(retrait).subscribe({
+        next: (response) => {
+          this.resultat = "Compte crédité";
+        },
+        error: (error) => {
+          this.resultat = "Erreur : " + error.error.error;
+          console.error(
+            `Backend returned code ${error.status}, ` +
+            `body was: ${error.error.error}`);
+        }
       });
     } else {
       this.resultat = "La somme doit être positive";
