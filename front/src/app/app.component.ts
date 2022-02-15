@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {BanqueService} from "./banque.service";
-import {InfoCompte} from "./info.compte";
 import {Router} from "@angular/router";
 
 @Component({
@@ -9,9 +8,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  id = "0";
 
-  constructor(private router: Router) {
+  constructor(private banqueService : BanqueService, private router: Router) {
   }
 
   creation() {
@@ -19,10 +17,10 @@ export class AppComponent {
   }
 
   consultation() {
-    this.router.navigate(['/consultation', this.id]);
+    this.router.navigate(['/consultation', this.banqueService.currentId]);
   }
 
   modification() {
-    this.router.navigate(['/modification', this.id]);
+    this.router.navigate(['/modification', this.banqueService.currentId]);
   }
 }

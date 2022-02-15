@@ -12,7 +12,7 @@ export class ConsultationComponent implements OnInit {
   ic : InfoCompte;
   resultat: string;
 
-  constructor(private banque: BanqueService, private route: ActivatedRoute) {
+  constructor(private banque: BanqueService, private route: ActivatedRoute, private router: Router) {
     this.resultat = "";
     this.ic = new InfoCompte();
   }
@@ -21,7 +21,7 @@ export class ConsultationComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       let id = params.get('id');
       if(id !== null)
-        this.ic._id = id;
+        this.banque.currentId = this.ic._id = id;
         this.positionDuCompte();
     });
   }
@@ -40,5 +40,9 @@ export class ConsultationComponent implements OnInit {
           `body was: ${error.error.error}`);
       }
     });
+  }
+
+  changerCompte() {
+    this.router.navigate(['/consultation', this.ic._id]);
   }
 }

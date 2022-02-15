@@ -1,6 +1,6 @@
 <form>
-  <label>Id : <input type="text" readonly [(ngModel)]="ic._id" name='id'></label><br>
+  <label>Id : <input type="text" [(ngModel)]="ic._id" name='id'></label><br>
   <label>Somme : <input type="number" readonly [(ngModel)]="ic._somme" name='somme'></label><br>
-  <button (click)="positionDuCompte()">Position du compte</button><br>
+  <button (click)="changerCompte()">Position du compte</button><br>
 </form>
 <p>Resultat : {{resultat}}</p>

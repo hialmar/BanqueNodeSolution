@@ -1,11 +1,8 @@
-<form>
-  <button (click)="creation()">Créer un compte</button><br>
-  <br>
-  <label>Id : <input type="text" [(ngModel)]="id" name='id'></label><br>
-  <button (click)="consultation()">Consulter le compte</button><br>
-  <button (click)="modification()">Créditer/Débiter le compte</button><br>
-</form>
-
+<div class="w3-bar w3-black">
+  <button class="w3-bar-item w3-button" (click)="creation()">Créer un compte</button>
+  <button class="w3-bar-item w3-button" (click)="consultation()">Consulter le compte</button>
+  <button class="w3-bar-item w3-button" (click)="modification()">Créditer/Débiter le compte</button>
+</div>
 
 <p>
   <router-outlet></router-outlet>

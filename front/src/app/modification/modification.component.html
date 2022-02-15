@@ -1,5 +1,5 @@
 <form>
-  <label>Id : <input type="text" readonly [(ngModel)]="ic._id" name='id'></label><br>
+  <label>Id : <input type="text" [(ngModel)]="ic._id" name='id'></label><br>
   <label>Somme : <input type="number" [(ngModel)]="ic._somme" name='somme'></label><br>
   <button (click)="ajouterAuCompte()">Créditer le compte</button><br>
   <button (click)="retirerDuCompte()">Débiter le compte</button><br>

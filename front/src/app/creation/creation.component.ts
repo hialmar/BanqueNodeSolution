@@ -22,6 +22,7 @@ export class CreationComponent implements OnInit {
     this.banque.creerCompte(this.ic).subscribe({
       next: (response) => {
         this.resultat = "Compte d'id "+response._id+" créé";
+        this.banque.currentId = response._id;
       },
       error: (error) => {
         this.resultat = "Erreur : " + error.error.error;

@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { InfoCompte } from './info.compte';
 import { Observable } from 'rxjs';
-import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BanqueService {
+
+  currentId = "0";
 
   restURL = "http://localhost:3000/compte/";
 
