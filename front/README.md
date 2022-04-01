@@ -10,7 +10,7 @@ npm install
 
 ## Development server
 
-Taez `ng serve` pour lancer l'application en mode développement. 
+Tapez `ng serve` pour lancer l'application en mode développement. 
 Allez ensuite à http://localhost:4200/. 
 L'app se re-charge automatiquement si vous changez le code source.
 
