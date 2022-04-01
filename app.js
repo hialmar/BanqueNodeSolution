@@ -126,7 +126,8 @@ app.put('/compte/:id', function (req, res) {
 });
 
 // on lance l'app express sur le port 3000
-app.listen(3000, function () {
- console.log('La banque écoute sur le port 3000!') ;
-});
+//app.listen(3000, function () {
+// console.log('La banque écoute sur le port 3000!') ;
+//});
 
+module.exports = app;

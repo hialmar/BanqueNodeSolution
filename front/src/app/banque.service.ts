@@ -10,7 +10,7 @@ export class BanqueService {
 
   currentId = "0";
 
-  restURL = "http://localhost:3000/compte/";
+  restURL = "https://hialmar-banque-node.herokuapp.com/compte/";
 
   constructor(private httpClient: HttpClient) { }
 
